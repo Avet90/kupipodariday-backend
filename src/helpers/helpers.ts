@@ -1,6 +1,6 @@
 import * as bcrypt from 'bcrypt';
 
-export class hashHelpers {
+export class HashHelper {
   static async createHash(password: string): Promise<string> {
     return bcrypt.hash(password, 10);
   }

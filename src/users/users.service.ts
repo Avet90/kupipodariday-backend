@@ -10,7 +10,7 @@ import { User } from '../users/entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUsertDto } from './dto/update-user.dto';
 import { FindUserDto } from './dto/find-user.dto';
-import { hashHelpers } from '../helpers/helpers';
+import { HashHelper } from '../helpers/helpers';
 
 @Injectable()
 export class UsersService {
@@ -25,7 +25,7 @@ export class UsersService {
   async create(сreateUserDto: CreateUserDto): Promise<User> {
     const user = this.userRepository.create(сreateUserDto);
     const { password, ...result } = user;
-    const hash = await hashHelpers.createHash(password);
+    const hash = await HashHelper.createHash(password);
     return await this.userRepository.save({ password: hash, ...result });
   }
 
@@ -93,7 +93,7 @@ export class UsersService {
     }
 
     if (updateUsertDto.password) {
-      const hash = await hashHelpers.createHash(updateUsertDto.password);
+      const hash = await HashHelper.createHash(updateUsertDto.password);
       const newUser = await this.userRepository.update(userId, {
         ...updateUsertDto,
         password: hash,

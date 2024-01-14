@@ -33,7 +33,7 @@ export class OffersService {
     //Проверка: сумма собранных средств не превышает стоимости подарка
     const sum = Number(wish.raised) + Number(createOfferDto.amount);
     if (+sum > wish.price) {
-      throw new ForbiddenException('Деньги на подарок уже собраны');
+      throw new ForbiddenException('Сумма взноса превышает требуемую сумму');
     }
 
     //Обновляем данные о подарке с учетом собранных средств
