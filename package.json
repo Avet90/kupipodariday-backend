@@ -1,8 +1,8 @@
 {
   "name": "kupipodariday-backend",
   "version": "0.0.1",
-  "description": "",
-  "author": "Avet S",
+  "description": "Backend для сервиса вишлистов",
+  "author": "Саркисян Аветик",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
